@@ -1519,3 +1519,18 @@ body {background-color:#fff;}
 #tabber .inside li .meta b,footer .widget li a:hover,.fn a,.reply a,#tabber .inside li div.info .entry-title a:hover, #navigation ul ul a:hover,.single_post a, a:hover, .textwidget a, #commentform a, #tabber .inside li a, .copyrights a:hover, a, .sidebar.c-4-12 a:hover, .top a:hover {color:#EA141F; }
 .corner {border-color: transparent transparent #EA141F transparent;}
 .secondary-navigation, footer, .sidebar #searchform input[type="submit"]:hover, .readMore a:hover, #commentform input#submit:hover, #commentform input.submit:hover { background-color: #364956; }
+.download{ text-align: center}
+.download >a{
+    display: block;
+    width: 50%;
+    height: 40px;
+    margin: 5px auto;
+    color: #fff;
+    padding-top: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.download h3{
+    margin-bottom: 0 !important;
+}

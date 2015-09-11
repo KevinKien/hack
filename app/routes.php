@@ -20,9 +20,10 @@ Route::controller('admin/categories', 'CategoriesController');
 
 Route::controller('user', 'UsersController');
 Route::controller('charge', 'TxnsController');
+Route::get('/captcha', 'CaptchaController@getBuild');
 
 Route::get('/{cateSlug}/{slug}.html', 'FrontsController@getArticleDetail');
-Route::get('/{cateSlug}', 'FrontsController@getArticleList');
+Route::get('/{cateSlug}.html', 'FrontsController@getArticleList');
 
 Route::group(array('before' => 'auth'), function()
 {

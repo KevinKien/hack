@@ -1,7 +1,7 @@
 @extends('layouts.fronts', array(
-    'title'=>$category->title,
-    'description'=>'Các bài viết về '.$category->title,
-    'keyword'=>$category->title
+    'title'=>$category->name,
+    'description'=>'Các bài viết về '.$category->name,
+    'keyword'=>$category->name
     ))
 
 @section('content')

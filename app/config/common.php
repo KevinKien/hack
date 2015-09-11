@@ -23,4 +23,6 @@ return array(
         TXN_CARD_RESPONSE_CODE_PENDING=>'Chờ xử lý'
     ),
 
+    'vnd_to_xu_rate' => 1/1000
+
 );

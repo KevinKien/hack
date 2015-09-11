@@ -99,144 +99,21 @@
                 <li class="widget widget-sidebar widget-style-1 ">
                     <h3>Thủ Thuật Hay</h3>
                     <ul>
+                        @foreach($articleHotList as $anArticle)
                         <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/huong-dan-tao-muc-luc-tu-dong-trong-word/"><img
-                                    src="/media/thuthuat-theme/files/tao-muc-luc-trong-word_104051.jpg"
-                                    alt="Hướng dẫn tạo mục lục tự động trong Word" width="65" height="50"
-                                    class="wp-post-image"></a>
-
+                            <div class="left">
+                                <a href="{{$anArticle->getUrlWithMainCate()}}">
+                                <img src="{{$anArticle->thumb}}" alt="{{$anArticle->title}}" width="65" height="50" class="wp-post-image"></a>
                                 <div class="clear"></div>
                             </div>
-                            <div class="info"><p class="entry-title"><a title="Hướng dẫn tạo mục lục tự động trong Word"
-                                                                        href="http://thuthuatphanmem.vn/huong-dan-tao-muc-luc-tu-dong-trong-word/">Hướng
-                                dẫn tạo mục lục tự động trong Word</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a href="http://thuthuatphanmem.vn/cach-danh-so-trang-bat-ky-trong-word/"><img
-                                    src="/media/thuthuat-theme/files/cach-danh-so-trang-bat-ky-trong-word_103052.png"
-                                    alt="Cách đánh số trang bất kỳ trong Word" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
+                            <div class="info">
+                                <p class="entry-title">
+                                    <a title="{{$anArticle->title}}" href="{{$anArticle->getUrlWithMainCate()}}">{{$anArticle->title}}</a>
+                                </p>
                             </div>
-                            <div class="info"><p class="entry-title"><a title="Cách đánh số trang bất kỳ trong Word"
-                                                                        href="http://thuthuatphanmem.vn/cach-danh-so-trang-bat-ky-trong-word/">Cách
-                                đánh số trang bất kỳ trong Word</a></p></div>
                             <div class="clear"></div>
                         </li>
-                        <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/huong-dan-xoa-file-rac-va-don-dep-may-tinh-windows-7/"><img
-                                    src="/media/thuthuat-theme/files/chay-ccleaner_021342.jpg"
-                                    alt="Hướng dẫn xóa file rác và dọn dẹp máy tính Windows 7" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a
-                                    title="Hướng dẫn xóa file rác và dọn dẹp máy tính Windows 7"
-                                    href="http://thuthuatphanmem.vn/huong-dan-xoa-file-rac-va-don-dep-may-tinh-windows-7/">Hướng
-                                dẫn xóa file rác và dọn dẹp máy tính Windows 7</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a href="http://thuthuatphanmem.vn/tao-khung-vien-border-dep-trong-word/"><img
-                                    src="/media/thuthuat-theme/files/tao-khung-vien-border-dep-trong-word_103530.png"
-                                    alt="Tạo khung viền border đẹp trong Word" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a title="Tạo khung viền border đẹp trong Word"
-                                                                        href="http://thuthuatphanmem.vn/tao-khung-vien-border-dep-trong-word/">Tạo
-                                khung viền border đẹp trong Word</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a href="http://thuthuatphanmem.vn/tong-hop-cac-lenh-run-cmd-thong-dung/"><img
-                                    src="/media/thuthuat-theme/files/cmd_074719.jpg" alt="Tổng hợp các lệnh Run CMD thông dụng"
-                                    width="65" height="50" class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a title="Tổng hợp các lệnh Run CMD thông dụng"
-                                                                        href="http://thuthuatphanmem.vn/tong-hop-cac-lenh-run-cmd-thong-dung/">Tổng
-                                hợp các lệnh Run CMD thông dụng</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/huong-dan-cau-hinh-gmail-tren-outlook/"><img
-                                    src="/media/thuthuat-theme/files/gmail-va-microsoft-outlook_043924.png"
-                                    alt="Hướng dẫn cấu hình Gmail trên Outlook" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a title="Hướng dẫn cấu hình Gmail trên Outlook"
-                                                                        href="http://thuthuatphanmem.vn/huong-dan-cau-hinh-gmail-tren-outlook/">Hướng
-                                dẫn cấu hình Gmail trên Outlook</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/2-phan-mem-xem-phim-hay-nhat-tren-may-tinh/"><img
-                                    src="/media/thuthuat-theme/files/kmplayer_095441.jpg"
-                                    alt="2 Phần mềm xem phim hay nhất trên máy tính" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a
-                                    title="2 Phần mềm xem phim hay nhất trên máy tính"
-                                    href="http://thuthuatphanmem.vn/2-phan-mem-xem-phim-hay-nhat-tren-may-tinh/">2 Phần
-                                mềm xem phim hay nhất trên máy tính</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/huong-dan-cach-chan-quang-cao-khi-luot-web-tren-firefox/"><img
-                                    src="/media/thuthuat-theme/files/adblock-plus_093154.jpg"
-                                    alt="Hướng dẫn cách chặn quảng cáo khi lướt web trên Firefox" width="65" height="50"
-                                    class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a
-                                    title="Hướng dẫn cách chặn quảng cáo khi lướt web trên Firefox"
-                                    href="http://thuthuatphanmem.vn/huong-dan-cach-chan-quang-cao-khi-luot-web-tren-firefox/">Hướng
-                                dẫn cách chặn quảng cáo khi lướt web trên Firefox</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a
-                                    href="http://thuthuatphanmem.vn/huong-dan-download-video-tren-youtube-khong-can-phan-mem/"><img
-                                    src="/media/thuthuat-theme/files/tai-video-tren-youtube_033431.png"
-                                    alt="Hướng dẫn download video trên Youtube không cần phần mềm" width="65"
-                                    height="50" class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a
-                                    title="Hướng dẫn download video trên Youtube không cần phần mềm"
-                                    href="http://thuthuatphanmem.vn/huong-dan-download-video-tren-youtube-khong-can-phan-mem/">Hướng
-                                dẫn download video trên Youtube không cần phần mềm</a></p></div>
-                            <div class="clear"></div>
-                        </li>
-                        <li>
-                            <div class="left"><a href="http://thuthuatphanmem.vn/cach-ve-bieu-do-trong-excel/"><img
-                                    src="/media/thuthuat-theme/files/ve-bieu-do-trong-excel_094646.png"
-                                    alt="Cách vẽ biểu đồ trong Excel" width="65" height="50" class="wp-post-image"></a>
-
-                                <div class="clear"></div>
-                            </div>
-                            <div class="info"><p class="entry-title"><a title="Cách vẽ biểu đồ trong Excel"
-                                                                        href="http://thuthuatphanmem.vn/cach-ve-bieu-do-trong-excel/">Cách
-                                vẽ biểu đồ trong Excel</a></p></div>
-                            <div class="clear"></div>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
 

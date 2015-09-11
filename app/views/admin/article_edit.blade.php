@@ -43,6 +43,9 @@
                     {{ Form::textarea( "content" , Input::old( "content" , $item->content) , array( 'id'=>'contentContainer' , 'rows'=>'10' ) ) }}
                 </div>
 
+            <div class="form-group">
+                <label>Bài HOT {{Form::checkbox('is_hot',$item->is_hot, $item->is_hot==1?'checked':'')}}</label>
+            </div>
                  <div class="form-group">
                         <label>
                         Active {{Form::checkbox('active', $item->active, $item->active==1?'checked':'')}}
@@ -72,9 +75,11 @@
                     <label>Link tải</label>
                     @foreach($allLinks as $aLink)
                     <div class="old">
+                    {{Form::hidden('id-link[]', $aLink->id)}}
                     {{ Form::text( "text-link[]" , $aLink->text , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tiêu đề' ) ) }}
                     {{ Form::text( "content-link[]" , $aLink->content , array( 'class'=>'form-control' , 'placeholder'=>'Nhập Link' ) ) }}
                     {{ Form::text( "price-link[]" , $aLink->price , array( 'class'=>'form-control' , 'placeholder'=>'Nhập giá' ) ) }}
+                    <button class="btn btn-danger deleteLink" type="button">X</button>
                     <hr/>
                     </div>
                     @endforeach
@@ -124,9 +129,16 @@
             {{$item->thumb?"":"$('#btnRemoveTopicImg').hide();"}}
             $('#addLink').click(function(){
                 var html = $('#block .old:last').html();
-                $('#block').append(html);
+                $('#block').append('<div class="old">'+html+'</div>');
+                $('#block .old:last input').val('');
             });
         });
+
+        $(document).on('click','.deleteLink',function(){
+            $(this).parent().remove();
+        });
+
+
 
         function saveCate(){
             cate_name = $('#txtCatename').val();

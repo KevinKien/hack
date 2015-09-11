@@ -16,21 +16,24 @@
                 </header>
                 <div class="post-single-content box mark-links">
                     <div class="row">
-                    {{Form::open(array('url'=>'/user/create', 'class'=>'col-md-8 col-xs-12'))}}
-                            @include('layouts._messages')
+                    {{Form::open(array('url'=>'#', 'class'=>'col-md-8 col-xs-12'))}}
+                            <div class="form-group has-error" style="margin-bottom: 0; display: none" id="ajaxMsgOnPage">
+                                <label class="control-label" for="inputError" ></label>
+                            </div>
                             <div class="form-group">
                                 <label for="username">Tên đăng nhập</label>
-                                {{Form::text('username', null, array('class'=>'form-control', 'autofocus'))}}
+                                {{Form::text('username', null, array('class'=>'form-control', 'autofocus' ,'id'=>'usernameOnPage'))}}
                             </div>
                              <div class="form-group">
                                 <label for="password">Mật khẩu</label>
-                                {{Form::password('password', array('class'=>'form-control'))}}
+                                {{Form::password('password', array('class'=>'form-control', 'id'=>'passwordOnPage'))}}
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation">Nhập lại mật khẩu</label>
-                                {{Form::password('password_confirmation', array('class'=>'form-control'))}}
+                                {{Form::password('password_confirmation', array('class'=>'form-control', 'id'=>'passwordConfirmationOnPage'))}}
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Đăng ký</button>
+                            <img src="/images/loading.gif" alt="" style="display: none" id="loadingImgOnPage" />
+                            <button type="button" class="btn btn-primary" onclick="registerOnPage()" id="regBtnOnPage"><i class="glyphicon glyphicon-ok"></i> Đăng ký</button>
                             <button type="reset" class="btn btn-default">Nhập lại</button>
                         {{Form::close()}}
                     </div>
@@ -39,4 +42,27 @@
         </div>
     </div>
 </article>
+
+<script>
+    function registerOnPage(){
+        username = $('#usernameOnPage').val();
+        password = $('#passwordOnPage').val();
+        password_confirmation = $('#passwordConfirmationOnPage').val();
+        $('#loadingImgOnPage').show();
+        $('#regBtnOnPage').hide();
+        $.post('/user/create',
+            { username:username, password:password, password_confirmation:password_confirmation }
+            ,function(result){
+                $('#ajaxMsgOnPage').show();
+                $('#ajaxMsgOnPage label').html(result.msg);
+                if(result.success){
+                    location.reload();
+                }else{
+
+                }
+                $('#loadingImgOnPage').hide();
+                $('#regBtnOnPage').show();
+            }, 'json');
+    }
+</script>
 @endsection

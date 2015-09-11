@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="/media/thuthuat-theme/files/style.css">
     <link rel="stylesheet" type="text/css" media="all" href="/media/thuthuat-theme/files/custom.css">
      <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
     <!--[if lt IE 9]>
     <script src="/js/html5.js"></script>
     <![endif]-->
@@ -42,15 +43,18 @@
                 <div class="user" style="margin-top: 10px">
                 @if(Auth::user())
                 <div id="fat-menu" class="dropdown" style="margin-top: 30px">
-                  Xin chào, <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                    {{Auth::user()->username}}
+                  <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                    <i class="fa fa-user"></i>
+                      {{Auth::user()->username}}
                     <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="drop3">
-                    <li><a href="/charge/new" target="_blank">Nạp xu</a></li>
-                    <li><a href="#">Thay đổi thông tin</a></li>
+                    <li><a href="/charge/new"><i class="fa fa-usd"></i> Số dư: {{ceil(Auth::user()->getAccount()->balance)}} XU</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/charge/new" target="_blank"><i class="fa fa-credit-card"></i> Nạp xu</a></li>
+                    <li><a href="/user/change-pass"><i class="fa fa-pencil"></i> Thay đổi mật khẩu</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/user/logout">Thoát</a></li>
+                    <li><a href="/user/logout"><i class="fa fa-sign-out"></i> Thoát</a></li>
                   </ul>
                 </div>
 
@@ -186,12 +190,12 @@
         $.post('/user/create',
         { username:username, password:password, password_confirmation:password_confirmation }
         ,function(result){
-
+            $('#ajaxMsgReg').show();
+            $('#ajaxMsgReg label').html(result.msg);
             if(result.success){
                 location.reload();
             }else{
-                $('#ajaxMsgReg').show();
-                $('#ajaxMsgReg label').html(result.msg);
+
             }
             $('#loadingImg').hide();
             $('#regBtn').show();
@@ -206,11 +210,13 @@
         $.post('/user/login',
         { username:username, password:password, remember:remember }
         ,function(result){
+            console.log(result);
+            $('#ajaxMsgLog').show();
+            $('#ajaxMsgLog label').html(result.msg);
             if(result.success){
                 location.reload();
             }else{
-                $('#ajaxMsgLog').show();
-                $('#ajaxMsgLog label').html(result.msg);
+
             }
             $('#loadingImgLog').hide();
             $('#logBtn').show();

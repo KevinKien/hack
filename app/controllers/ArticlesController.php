@@ -48,6 +48,7 @@ class ArticlesController extends AdminBaseController {
             $newRecord->content = Input::get('content');
             $newRecord->thumb = Input::get('topicImg');
             $newRecord->active = Input::has('active')? 1: 0;
+            $newRecord->is_hot = Input::has('is_hot')? 1: 0;
             $newRecord->slug = CommonHelper::vietnameseToASCII($newRecord->title);
             $newRecord->save();
 
@@ -108,6 +109,8 @@ class ArticlesController extends AdminBaseController {
             $record->content = Input::get('content');
             $record->thumb = Input::get('topicImg');
             $record->active = Input::has('active')? 1: 0;
+            $record->is_hot = Input::has('is_hot')? 1: 0;
+
             $record->save();
 
             //Lưu category
@@ -121,18 +124,25 @@ class ArticlesController extends AdminBaseController {
                 }
             }
 
-            Link::where('article_id', $id)->delete();
+            $allLinks = Link::where('article_id', $id)->lists('id');
+            $allNewLink = array();
             if(Input::has('text-link')){
                 foreach(Input::get('text-link') as $key=>$val){
-                    $newLink = new Link();
+                    if(Input::get('id-link')[$key] != ''){
+                        $newLink = Link::find(Input::get('id-link')[$key]);
+                    }else{
+                        $newLink = new Link();
+                    }
                     $newLink->article_id = $id;
                     $newLink->text = $val;
                     $newLink->content = Input::get('content-link')[$key];
                     $newLink->price = Input::get('price-link')[$key];
                     $newLink->save();
+                    $allNewLink[] = $newLink->id;
                 }
             }
-
+            $allDeletedLink = Link::where('article_id', $id)->whereNotIn('id', $allNewLink);
+            $allDeletedLink->delete();
         }catch (Exception $e){
             DB::rollBack();
             return Redirect::back()->with('error', $e->getMessage())->withInput();

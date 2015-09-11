@@ -43,9 +43,12 @@
                     {{ Form::textarea( "content" , Input::old( "content" ) , array( 'id'=>'contentContainer' , 'rows'=>'10' ) ) }}
                 </div>
 
+                <div class="form-group">
+                    <label>Bài HOT {{Form::checkbox('is_hot', 1)}}</label>
+                </div>
                  <div class="form-group">
-                        <label>Active {{Form::checkbox('active', 1, 'checked')}}</label>
-                    </div>
+                    <label>Active {{Form::checkbox('active', 1, 'checked')}}</label>
+                </div>
 
                 <div class="form-group">
                     <div class="col-lg-5">

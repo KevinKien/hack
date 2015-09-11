@@ -56,4 +56,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     {
         return 'remember_token';
     }
+
+    public function account()
+    {
+        return $this->hasOne('Account');
+    }
+
+    public function getAccount(){
+        $account = Account::firstOrNew(array('user_id'=>$this->id));
+        if(!$account->exists){
+            $account->balance=0;
+            $account->sealed_balance=0;
+            $account->save();
+        }
+        return $account;
+    }
 }
