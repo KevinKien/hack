@@ -43,7 +43,7 @@
                 <div class="user" style="margin-top: 10px">
                 @if(Auth::user())
                 <div id="fat-menu" class="dropdown" style="margin-top: 30px">
-                  <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                     <i class="fa fa-user"></i>
                       {{Auth::user()->username}}
                     <span class="caret"></span>

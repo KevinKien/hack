@@ -13,18 +13,17 @@
         <div class="post excerpt">
             <header>
                 <h2 class="title">
-                    <a href="{{$anArticle->getUrlWithMainCate()}}"
-                       title="{{$anArticle->title}}" rel="bookmark">{{$anArticle->title}}</a>
+                    <a href="{{$anArticle->getUrlWithMainCate()}}" title="{{$anArticle->title}}" rel="bookmark">{{$anArticle->title}}</a>
                 </h2>
                 <div class="post-info">
                     <div class="time_mt hp_meta">{{$anArticle->created_at->format('d/m/Y')}}</div>
-                    <div class="cat_mt hp_meta"><span class="mt_icon"> </span><a
-                            href="/{{$anArticle->category_alias}}" title="View all posts in Word">{{$anArticle->category_name}}</a>
+                    <div class="cat_mt hp_meta">
+                        <i class="fa fa-file" style="margin: 0 3px 0 7px"></i>
+                        <a href="{{$anArticle->getMainCate()->getLink()}}" title="Xem tất cả bài viết trong {{$anArticle->getMainCate()->name}}">{{$anArticle->getMainCate()->name}}</a>
                     </div>
                 </div>
             </header>
-            <a rel="nofollow" href="{{$anArticle->getUrlWithMainCate()}}"
-               title="{{$anArticle->title}}" class="featured-thumbnail-a">
+            <a rel="nofollow" href="{{$anArticle->getUrlWithMainCate()}}" title="{{$anArticle->title}}" class="featured-thumbnail-a">
                 <div class="featured-thumbnail">
                     <img width="150" height="150" src="{{$anArticle->thumb}}" class="attachment-featured wp-post-image" alt="{{$anArticle->title}}" title="{{$anArticle->title}}">
                 </div>
