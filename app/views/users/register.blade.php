@@ -10,7 +10,9 @@
     <div id="content_box">
         <div class="post">
             <div class="single_post">
-                <div class="breadcrumb"><a href="/">Home</a>   »   Đăng ký</div>
+                @include('layouts._breadcrumb', array(
+                       'lv3' => 'Đăng ký'
+                   ))
                 <header>
                     <h1 class="title single-title page-header">Đăng ký</h1>
                 </header>
@@ -34,7 +36,7 @@
                             </div>
                             <img src="/images/loading.gif" alt="" style="display: none" id="loadingImgOnPage" />
                             <button type="button" class="btn btn-primary" onclick="registerOnPage()" id="regBtnOnPage"><i class="glyphicon glyphicon-ok"></i> Đăng ký</button>
-                            <button type="reset" class="btn btn-default">Nhập lại</button>
+                            <button type="reset" class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i> Nhập lại</button>
                         {{Form::close()}}
                     </div>
                 </div>

@@ -69,7 +69,7 @@
         <div class="secondary-navigation">
             <nav id="navigation">
                 <ul id="menu-main-navigation" class="menu sf-js-enabled">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
                     <li><a href="#">Internet</a></li>
                     <li class=""><a href="#" class="sf-with-ul">Văn
                         Phòng<span class="sf-sub-indicator"> »</span></a>

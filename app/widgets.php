@@ -9,8 +9,17 @@ Widget::register('aside', function(){
         ->groupBy('articles.id')
         ->orderBy('articles.id','desc')
         ->paginate(10);
+
+    $articleNewList = Article::join('article_category', 'articles.id', '=', 'article_category.article_id')
+        ->join('categories', 'categories.id', '=', 'article_category.category_id')
+        ->select(array('articles.*', 'categories.name as category_name', 'categories.alias as category_alias'))
+        ->where('articles.active',1)
+        ->groupBy('articles.id')
+        ->orderBy('articles.id','desc')
+        ->paginate(10);
     return View::make('widgets.aside', array(
-        'articleHotList' => $articleHotList
+        'articleHotList' => $articleHotList,
+        'articleNewList' => $articleNewList
     ));
 });
 

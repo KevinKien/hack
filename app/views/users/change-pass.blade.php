@@ -10,7 +10,9 @@
     <div id="content_box">
         <div class="post">
             <div class="single_post">
-                <div class="breadcrumb"><a href="/">Home</a>   »   Đổi mật khẩu</div>
+                @include('layouts._breadcrumb', array(
+                       'lv3' => 'Đổi mật khẩu'
+                   ))
                 <header>
                     <h1 class="title single-title page-header">Đổi mật khẩu</h1>
                 </header>
@@ -35,7 +37,7 @@
                         </div>
                         <img src="/images/loading.gif" alt="" style="display: none" id="loadingImgOnPage" />
                         <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Xác nhận</button>
-                        <button type="reset" class="btn btn-default">Nhập lại</button>
+                        <button type="reset" class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i> Nhập lại</button>
                         {{Form::close()}}
                     </div>
                 </div>

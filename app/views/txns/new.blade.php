@@ -9,10 +9,14 @@
         <div id="content_box">
             <div class="post">
                 <div class="single_post">
-                    <div class="breadcrumb"><a href="/">Home</a>   »   Nạp xu</div>
+                    @include('layouts._breadcrumb', array(
+                        'lv3' => 'Nạp xu'
+                    ))
                     <header>
                         <h1 class="title single-title">Nạp xu</h1>
-                        <span class="theauthor single-postmeta" style="font-style: italic"><b>Tỷ lệ nạp:</b> 1000đ = 1XU</span>
+                        <span class="theauthor single-postmeta" style="font-style: italic">
+                            <b><i class="fa fa-star"></i> Tỷ lệ nạp:</b> 1000đ = 1XU
+                        </span>
                     </header><!--.headline_area-->
                     <div class="post-single-content box mark-links">
                         {{Form::open(array('url'=>'charge/new', 'role'=>'form'))}}

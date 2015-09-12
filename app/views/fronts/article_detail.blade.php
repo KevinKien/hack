@@ -10,9 +10,13 @@
     <div id="content_box">
           <div class="post">
                 <div class="single_post">
-
-                    <div class="breadcrumb"><a href="/">Home</a>   »   <a title="View all posts in Internet" href="/{{$category->alias}}">{{$category->name}}</a>   »   {{$item->title}}</div>
-
+                    @include('layouts._breadcrumb', array(
+                        'lv2'=> array(
+                            'url'=>$category->getLink(),
+                            'title' => $category->name
+                        ),
+                        'lv3' => $item->title
+                    ))
                     <header>
                         <h1 class="title single-title">{{$item->title}}</h1>
                         <span class="theauthor single-postmeta"><i class="fa fa-pencil"></i> Đăng tại <a href="{{$category->getLink()}}" title="Xem tất cả bài viết về {{$category->name}}" rel="nofollow">{{$category->name}}</a> vào ngày {{$item->created_at->format('d/m/Y')}}</span>
