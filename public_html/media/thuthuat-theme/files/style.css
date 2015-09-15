@@ -1471,7 +1471,7 @@ ol.commentlist { margin-left: 0 }
     .widget-header {
         max-width: 100%;
         float: left;
-        margin-top: 15px;
+        margin-bottom: 15px;
     }
 }
 @media screen and (max-width:720px) { 

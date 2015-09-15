@@ -71,19 +71,19 @@
                 <ul id="menu-main-navigation" class="menu sf-js-enabled">
                     <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
                     <li><a href="#">Internet</a></li>
-                    <li class=""><a href="#" class="sf-with-ul">Văn
-                        Phòng<span class="sf-sub-indicator"> »</span></a>
+                    <li class="">
+                        <a href="#" class="sf-with-ul">Văn Phòng<span class="sf-sub-indicator"> »</span></a>
                         <ul class="sub-menu sf-js-enabled" style="display: none; visibility: hidden;">
                             <li><a href="#">Word</a></li>
                             <li><a href="#">Excel</a></li>
                             <li><a href="#">PowerPoint</a></li>
                         </ul>
                     </li>
-                    <li><a href="http://thuthuatphanmem.vn/thu-thuat/bao-mat/">Bảo Mật</a></li>
-                    <li><a href="http://thuthuatphanmem.vn/thu-thuat/audio-video/">Audio/Video</a></li>
-                    <li><a href="http://thuthuatphanmem.vn/thu-thuat/do-hoa/">Đồ Họa</a></li>
-                    <li><a href="http://thuthuatphanmem.vn/thu-thuat/he-dieu-hanh/">Hệ Điều Hành</a></li>
-                    <li><a rel="nofollow" href="http://thuthuatphanmem.vn/page/lien-he/">Liên Hệ</a>
+                    <li><a href="#">Bảo Mật</a></li>
+                    <li><a href="#">Audio/Video</a></li>
+                    <li><a href="#">Đồ Họa</a></li>
+                    <li><a href="#">Hệ Điều Hành</a></li>
+                    <li><a rel="nofollow" href="#">Liên Hệ</a>
                     </li>
                 </ul>
             </nav>
@@ -94,7 +94,7 @@
 </header>
 <!-- Modal reg-->
 <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document" style="width: 400px">
+  <div class="modal-dialog" role="document" style="max-width: 400px">
     <div class="modal-content">
       <div class="modal-header" style="background: #3276b1; text-align: center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -127,7 +127,7 @@
 
 <!-- Modal login-->
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document" style="width: 400px">
+  <div class="modal-dialog" role="document" style="max-width: 400px">
     <div class="modal-content">
       <div class="modal-header" style="background: #3276b1; text-align: center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -179,6 +179,16 @@
           $('#txtPasswordLog').val('');
           $('#ajaxMsgLog label').html('');
         });
+        $("#txtPassword").keypress(function(e){
+            if(e.which==13){
+                register();
+            }
+        });
+        $("#txtPasswordLog").keypress(function(e){
+            if(e.which==13){
+                login();
+            }
+        });
     });
 
     function register(){
@@ -193,6 +203,7 @@
             $('#ajaxMsgReg').show();
             $('#ajaxMsgReg label').html(result.msg);
             if(result.success){
+                $('#modalRegister').modal('hide');
                 location.reload();
             }else{
 
@@ -214,6 +225,7 @@
             $('#ajaxMsgLog').show();
             $('#ajaxMsgLog label').html(result.msg);
             if(result.success){
+                $('#modalLogin').modal('hide');
                 location.reload();
             }else{
 

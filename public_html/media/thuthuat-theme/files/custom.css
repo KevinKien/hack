@@ -159,7 +159,8 @@ input.coupon-button:active {
 /*---------------------------------------------*/
 @media screen and (max-width:900px) {
     .widget-header {
-        display: none;
+        width: 100%;
+        text-align: center;
     }
 }
 
