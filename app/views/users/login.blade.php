@@ -41,6 +41,19 @@
     </article>
 
     <script>
+    $(function(){
+        $("#usernameOnPage").keypress(function(e){
+            if(e.which==13){
+                loginOnPage();
+            }
+        });
+        $("#passwordOnPage").keypress(function(e){
+            if(e.which==13){
+                loginOnPage();
+            }
+        });
+    });
+
         function loginOnPage(){
             username = $('#usernameOnPage').val();
             password = $('#passwordOnPage').val();

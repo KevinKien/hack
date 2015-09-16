@@ -75,6 +75,7 @@
                     {{ Form::text( "text-link[]" , Input::old( "text-link" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập tiêu đề' ) ) }}
                     {{ Form::text( "content-link[]" , Input::old( "content-link" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập Link' ) ) }}
                     {{ Form::text( "price-link[]" , Input::old( "price-link" ) , array( 'class'=>'form-control' , 'placeholder'=>'Nhập giá' ) ) }}
+                    <button class="btn btn-danger deleteLink" type="button">X</button>
                     <hr/>
                     </div>
                 </div>
@@ -123,8 +124,13 @@
             $('#btnRemoveTopicImg').hide();
             $('#addLink').click(function(){
                 var html = $('#block .old:last').html();
-                $('#block').append(html);
+                $('#block').append('<div class="old">'+html+'</div>');
+                $('#block .old:last input').val('');
             });
+        });
+
+        $(document).on('click','.deleteLink',function(){
+            $(this).parent().remove();
         });
 
         function saveCate(){

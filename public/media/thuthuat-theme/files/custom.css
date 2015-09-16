@@ -17,7 +17,7 @@ body {
 }
 
 #navigation ul ul a, #navigation ul ul a:link, #navigation ul ul a:visited {
-    width: 170px !important;
+    width: auto !important;
 }
 
 .readMore a{

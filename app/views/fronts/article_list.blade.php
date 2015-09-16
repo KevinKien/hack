@@ -7,6 +7,7 @@
 @section('content')
 
 <article class="article">
+    <h1 class="postsby"><span>{{$category->name}}</span></h1>
     <div id="content_box" class="home_page">
     @foreach($allArticles as $anArticle)
             <div class="post excerpt">

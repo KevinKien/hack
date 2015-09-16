@@ -3,9 +3,10 @@
         <div class="footer-widgets">
             <div class="f-widget f-widget-1">
                 <div class="widget">
-                    <h3>About Us</h3>
-                    <div class="textwidget">Blog tổng hợp những thủ thuật hay về phần mềm internet, văn phòng, bảo mật,
-                        đồ họa, xử lý ảnh/video... cho các bạn yêu thích tin học.
+                    <h3>Về chúng tôi</h3>
+                    <div class="textwidget">
+                        Website chia sẻ những thủ thuật hay về hack game online,
+                        hack game điện thoại, hack game offline, hack game Android, iOS...
                     </div>
                 </div>
             </div>
@@ -27,7 +28,7 @@
             </div>
             <div class="f-widget last">
                 <div class="widget">
-                    <h3>Connect with Us</h3>
+                    <h3>Kết nối với chúng tôi</h3>
                     <div class="social-profile-icons">
                         <ul class="">
                             <li class="social-facebook">
@@ -37,10 +38,10 @@
                                 <a rel="nofollow" href="#" title="Google+">Google+</a>
                             </li>
                             <li class="social-twitter">
-                                <a rel="nofollow" href="http://thuthuatphanmem.vn/#" title="Twitter">Twitter</a>
+                                <a rel="nofollow" href="#" title="Twitter">Twitter</a>
                             </li>
                             <li class="social-youtube">
-                                <a rel="nofollow" href="http://thuthuatphanmem.vn/#" title="Youtube">Youtube</a>
+                                <a rel="nofollow" href="#" title="Youtube">Youtube</a>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +55,7 @@
     <div class="copyrights">
         <div class="row" id="copyright-note">
             <span>
-                <a href="#" title="Thủ Thuật Phần Mềm">ThuThuatPhanMem.vn</a> Copyright © 2014.
+                <a href="#" title="Trùm Hack">TrumHack.Com</a> Copyright © 2014.
                 <a href="#" title="DMCA.com Protection Status" class="dmca-badge">
                     <img src="/media/thuthuat-theme/files/dmca_protected_sml_120m.png" alt="DMCA.com Protection Status">
                 </a>

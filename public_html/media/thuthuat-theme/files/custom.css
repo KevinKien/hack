@@ -4,12 +4,12 @@ body {
 
 .banner {
     margin-top: 20px;
-	max-width: 600px;
-	max-height: 74px;
+    max-width: 600px;
+    max-height: 74px;
 }
 
 .adv-post-top, .adv-post-bottom {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 #navigation ul ul {
@@ -17,7 +17,7 @@ body {
 }
 
 #navigation ul ul a, #navigation ul ul a:link, #navigation ul ul a:visited {
-    width: 170px !important;
+    width: auto !important;
 }
 
 .readMore a{

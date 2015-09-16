@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)http://thuthuatphanmem.vn/ -->
-<html xmlns="http://www.w3.org/1999/xhtml"
-      class=" js flexbox no-touch rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <title>
-        {{isset($title)?$title:'Thủ thuật'}}
+        {{isset($title)?$title:'Trùm hack | Hướng dẫn hack game online, game điện thoại, game PC'}}
     </title>
-    <link rel="icon" href="http://thuthuatphanmem.vn/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/media/img/favicon.ico" type="image/x-icon">
     <!--iOS/android/handheld specific -->
-    <link rel="apple-touch-icon" href="http://thuthuatphanmem.vn/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/media/img/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -27,22 +25,32 @@
     <script type="text/javascript" src="/media/thuthuat-theme/files/modernizr.min.js"></script>
     <script type="text/javascript" src="/media/thuthuat-theme/files/customscript.js"></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-    <meta name="description"
-          content="{{isset($description)?$description:''}}">
-    <meta name="keywords"
-          content="{{isset($keyword)?$keyword:''}}">
+    <meta name="description" content="{{isset($description)?$description:''}}">
+    <meta name="keywords" content="{{isset($keyword)?$keyword:''}}">
     <link href="/media/thuthuat-theme/files/streamtestbadge.css" type="text/css" rel="stylesheet">
 </head>
 <body id="blog" class="home blog main">
+<style>
+#fat-menu{
+ margin-top: 30px;
+}
+   @media screen and (max-width:728px) {
+        #fat-menu{
+         margin-top: 0;
+         display: inline-block;
+        }
+    }
+</style>
 <header class="main-header">
     <div class="container">
         <div id="header">
-            <h1 id="logo"><a href="/" title="Thủ Thuật Phần Mềm"><img
-                    src="/media/thuthuat-theme/files/logo.png" alt="Thủ Thuật Phần Mềm"></a></h1>
+            <h1 id="logo">
+                <a href="/" title="Trùm Hack"><img src="/media/img/logo.png" alt="Trùm Hack"></a>
+            </h1>
             <div class="widget-header">
                 <div class="user" style="margin-top: 10px">
                 @if(Auth::user())
-                <div id="fat-menu" class="dropdown" style="margin-top: 30px">
+                <div id="fat-menu" class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                     <i class="fa fa-user"></i>
                       {{Auth::user()->username}}
@@ -70,21 +78,19 @@
             <nav id="navigation">
                 <ul id="menu-main-navigation" class="menu sf-js-enabled">
                     <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
-                    <li><a href="#">Internet</a></li>
                     <li class="">
-                        <a href="#" class="sf-with-ul">Văn Phòng<span class="sf-sub-indicator"> »</span></a>
+                        <a href="#" class="sf-with-ul">Hack Game Online<span class="sf-sub-indicator"> »</span></a>
                         <ul class="sub-menu sf-js-enabled" style="display: none; visibility: hidden;">
-                            <li><a href="#">Word</a></li>
-                            <li><a href="#">Excel</a></li>
-                            <li><a href="#">PowerPoint</a></li>
+                            <li><a href="#"><i class="fa fa-chrome"></i> Hack Webgame</a></li>
+                            <li><a href="#"><i class="fa fa-android"></i> Hack game Android</a></li>
+                            <li><a href="#"><i class="fa fa-apple"></i> Hack game iOS</a></li>
+                            <li><a href="#"><i class="fa fa-desktop"></i> Hack game PC</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Bảo Mật</a></li>
-                    <li><a href="#">Audio/Video</a></li>
-                    <li><a href="#">Đồ Họa</a></li>
-                    <li><a href="#">Hệ Điều Hành</a></li>
-                    <li><a rel="nofollow" href="#">Liên Hệ</a>
-                    </li>
+                    <li><a href="#">Hack Game Offline</a></li>
+                    <li><a href="#">Thủ thuật</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a rel="nofollow" href="#">Liên Hệ</a></li>
                 </ul>
             </nav>
         </div>
@@ -179,12 +185,22 @@
           $('#txtPasswordLog').val('');
           $('#ajaxMsgLog label').html('');
         });
+         $("#txtUsername").keypress(function(e){
+            if(e.which==13){
+                register();
+            }
+        });
         $("#txtPassword").keypress(function(e){
             if(e.which==13){
                 register();
             }
         });
         $("#txtPasswordLog").keypress(function(e){
+            if(e.which==13){
+                login();
+            }
+        });
+         $("#txtUsernameLog").keypress(function(e){
             if(e.which==13){
                 login();
             }

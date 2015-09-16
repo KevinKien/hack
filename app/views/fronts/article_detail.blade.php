@@ -27,6 +27,7 @@
                     </div>
 
                     <div class="download" style="margin-top: 30px">
+                    @if(count($item->links) > 0)
                         <h3 style="padding: 1px solid #e2e2e2; padding-bottom: 10px">TẢI VỀ</h3>
                         @if(Auth::user())
                             <p style="font-style: italic">Bạn có {{ceil(Auth::user()->account->balance)}} XU để mua Link</p>
@@ -44,7 +45,7 @@
                         @else
                             <p style="font-style: italic">Bạn cần <a href="#modalLogin" data-toggle="modal">đăng nhập</a> để xem</p>
                         @endif
-
+                    @endif
                     </div>
 
                 </div> <!-- .single_post -->

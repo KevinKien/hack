@@ -46,6 +46,19 @@
 </article>
 
 <script>
+$(function(){
+        $("#usernameOnPage").keypress(function(e){
+            if(e.which==13){
+                registerOnPage();
+            }
+        });
+        $("#passwordOnPage").keypress(function(e){
+            if(e.which==13){
+                registerOnPage();
+            }
+        });
+    });
+
     function registerOnPage(){
         username = $('#usernameOnPage').val();
         password = $('#passwordOnPage').val();
