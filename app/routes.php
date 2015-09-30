@@ -22,11 +22,22 @@ Route::controller('user', 'UsersController');
 Route::controller('charge', 'TxnsController');
 Route::get('/captcha', 'CaptchaController@getBuild');
 
-Route::get('/{cateSlug}/{slug}.html', 'FrontsController@getArticleDetail');
-Route::get('/{cateSlug}.html', 'FrontsController@getArticleList');
+Route::get('/{cateSlug}/{slug}.html', array(
+    'as' =>'article',
+    'uses' => 'FrontsController@getArticleDetail'
+));
+Route::get('/{cateSlug}.html', array(
+    'as' => 'category',
+    'uses'=>'FrontsController@getArticleList'
+));
 
 Route::group(array('before' => 'auth'), function()
 {
     \Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
     \Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
 });
+
+Route::get('sitemap.xml', array(
+    'as'=>'sitemap',
+    'uses'=>'HomeController@sitemap'
+));
