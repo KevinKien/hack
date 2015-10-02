@@ -26,6 +26,9 @@ return array(
 			'relationship' => 'roles',
 			'select' => "group_concat(role_name)",
 		),
+		'created_at'=>array(
+			'title' => 'Thời gian'
+		)
 	),
 
 	/**

@@ -15,7 +15,6 @@ class FrontsController extends \BaseController {
 
     public function getArticleList($cateSlug){
         $category = Category::where('alias', $cateSlug)->first();
-//        print_r($cateSlug);die;
         $allArticles = Article::join('article_category', 'articles.id', '=', 'article_category.article_id')
             ->join('categories', 'categories.id', '=', 'article_category.category_id')
             ->select(array('articles.*', 'categories.name as category_name'))

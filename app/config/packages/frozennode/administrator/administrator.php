@@ -53,7 +53,8 @@ return array(
 	 */
 	'menu' => array(
         'ACL'=>array('users','roles','resources','permissions'),
-        'activity_log'
+        'activity_log',
+		'Giao dịch' => array('txns', 'txn_links')
     ),
 
 	/**

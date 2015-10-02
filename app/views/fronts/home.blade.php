@@ -1,7 +1,7 @@
 @extends('layouts.fronts', array(
-    'title'=>'Trang chủ',
-    'description'=>'Mô tả',
-    'keyword'=>'Từ khoá'
+    'title'=>'Trùm Hack | Thủ thuật hack Webgame, game di động, game Online và Offline',
+    'description'=>'Website chia sẻ những thủ thuật hay về hack game online, hack game điện thoại, hack game offline, hack game Android, iOS',
+    'keyword'=>'Hack game online, hack game offline, hack game android, hack game ios, hack webgame mới nhất, hack liên minh, hack mu, hack đột kích'
     ))
 
 @section('content')

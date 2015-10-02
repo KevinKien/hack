@@ -89,17 +89,17 @@
                 <ul id="menu-main-navigation" class="menu sf-js-enabled">
                     <li><a href="/"><i class="fa fa-home"></i> Trang chủ</a></li>
                     <li class="">
-                        <a href="#" class="sf-with-ul">Hack Game Online<span class="sf-sub-indicator"> »</span></a>
+                        <a href="/hack-game-online.html" class="sf-with-ul">Hack Game Online<span class="sf-sub-indicator"> »</span></a>
                         <ul class="sub-menu sf-js-enabled" style="display: none; visibility: hidden;">
-                            <li><a href="#"><i class="fa fa-chrome"></i> Hack Webgame</a></li>
-                            <li><a href="#"><i class="fa fa-android"></i> Hack game Android</a></li>
-                            <li><a href="#"><i class="fa fa-apple"></i> Hack game iOS</a></li>
-                            <li><a href="#"><i class="fa fa-desktop"></i> Hack game PC</a></li>
+                            <li><a href="/hack-webgame.html"><i class="fa fa-chrome"></i> Hack Webgame</a></li>
+                            <li><a href="/hack-game-android.html"><i class="fa fa-android"></i> Hack game Android</a></li>
+                            <li><a href="/hack-game-ios.html"><i class="fa fa-apple"></i> Hack game iOS</a></li>
+                            <li><a href="/hack-game-pc.html"><i class="fa fa-desktop"></i> Hack game PC</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Hack Game Offline</a></li>
-                    <li><a href="#">Thủ thuật</a></li>
-                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="/hack-game-offline.html">Hack Game Offline</a></li>
+                    <li><a href="/thu-thuat.html">Thủ thuật</a></li>
+                    <li><a href="/tin-tuc.html">Tin tức</a></li>
                     <li><a rel="nofollow" href="#">Liên Hệ</a></li>
                 </ul>
             </nav>
