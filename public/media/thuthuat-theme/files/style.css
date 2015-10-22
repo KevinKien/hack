@@ -1344,11 +1344,9 @@ ol.commentlist { margin-left: 0 }
     clear: both;
     overflow: hidden;
     float: left;
-    width: 95.7%;
+    width: 100%;
     padding: 2%;
     margin-bottom: 20px;
-
-
     border: 1px solid #dcdcdc;
     font-family: arial;
     overflow: hidden;
