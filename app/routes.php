@@ -21,6 +21,7 @@ Route::controller('admin/categories', 'CategoriesController');
 Route::controller('user', 'UsersController');
 Route::controller('charge', 'TxnsController');
 Route::get('/captcha', 'CaptchaController@getBuild');
+Route::get('/nap-so-garena.html', 'TxnsController@getChargeGarena');
 
 Route::get('/{cateSlug}/{slug}.html', array(
     'as' =>'article',

@@ -17,4 +17,10 @@
             <priority>1.0</priority>
         </url>
     @endforeach
+        <url>
+            <loc>http://trumhack.com/nap-so-garena.html</loc>
+            <lastmod>{{ gmdate(DateTime::W3C, strtotime('2015-12-16 09:35:00')) }}</lastmod>
+            <changefreq>daily</changefreq>
+            <priority>1.0</priority>
+        </url>
 </urlset>

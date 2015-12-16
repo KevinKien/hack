@@ -5,6 +5,11 @@
     <file url="file://$PROJECT_DIR$/app/libs/maxpay/MaxpayClient.php" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/libs/maxpay/ca.crt" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/libs/maxpay/samples" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/libs/vtc/checkout.php" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/libs/vtc/data" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/libs/vtc/done.php" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/libs/vtc/index.php" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/libs/vtc/notification.php" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/models/Account.php" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/models/AccountTrace.php" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/models/LogMaxpay.php" charset="windows-1252" />
@@ -14,4 +19,3 @@
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
-

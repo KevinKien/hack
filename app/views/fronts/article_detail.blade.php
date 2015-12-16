@@ -32,9 +32,9 @@
                         @if(Auth::user())
                             <p style="font-style: italic">Bạn có {{ceil(Auth::user()->account->balance)}} XU để mua Link</p>
                             @foreach($item->links as $aLink)
-                                @if($aLink->isBuyByUser())
+                                @if($aLink->isBuyByUser() || $aLink->price == 0)
                                     <a class="btn btn-success" target="_blank" href="{{$aLink->isBuyByUser() ? $aLink->content : 'javascript:buyLink('.$aLink->id.')'}}">
-                                        <i class="fa fa-download"></i> {{$aLink->text}} (Đã mua)
+                                        <i class="fa fa-download"></i> {{$aLink->text}} @if($aLink->price > 0)(Đã mua) @endif
                                     </a>
                                 @else
                                     <a class="btn btn-primary" href="{{'javascript:buyLink('.$aLink->id.')'}}">

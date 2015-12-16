@@ -28,15 +28,15 @@
 @include('layouts._messages')
                 <div class="form-group">
                     <label>Tiêu đề</label>
-                    {{ Form::text( "title" , Input::old( "title" ) , array( 'class'=>'form-control required' , 'placeholder'=>'Nhập tiêu đề' ) ) }}
+                    {{ Form::text( "title" , Input::old( "title" ) , array( 'class'=>'form-control required' , 'placeholder'=>'Nhập tiêu đề' , 'id'=>'txtTitle') ) }}
                 </div>
                 <div class="form-group">
                     <label>Mô tả</label>
                     {{ Form::textarea( "description" , Input::old( "description" ) , array( 'class'=>'form-control' , 'rows'=>'2' ) ) }}
                 </div>
                 <div class="form-group">
-                    <label>Từ khoá</label>
-                    {{ Form::text( "keyword" , Input::old( "keyword" ) , array( 'class'=>'form-control' , 'placeholder'=>'Cách nhau bởi dấu phẩy' ) ) }}
+                    <label>Từ khoá <a href="javascript:void(0)" onclick="getSuggesstionTag()">[Gợi ý]</a></label>
+                    {{ Form::text( "keyword" , Input::old( "keyword" ) , array( 'class'=>'form-control' , 'placeholder'=>'Cách nhau bởi dấu phẩy', 'id'=>'txtKeyword' ) ) }}
                 </div>
                 <div class="form-group">
                     <label>Nội dung</label>
@@ -127,11 +127,24 @@
                 $('#block').append('<div class="old">'+html+'</div>');
                 $('#block .old:last input').val('');
             });
+
         });
 
         $(document).on('click','.deleteLink',function(){
             $(this).parent().remove();
         });
+
+        function getSuggesstionTag(){
+            keyword = $('#txtKeyword').val();
+            $.post('/admin/articles/keyword', {
+                keyword: keyword
+            }, function(result){
+                console.log(result);
+                if(result.success){
+                    $('#txtKeyword').val(keyword+','+result.key);
+                }
+            }, 'json');
+        }
 
         function saveCate(){
             cate_name = $('#txtCatename').val();

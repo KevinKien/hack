@@ -5,7 +5,10 @@ use Gregwar\Captcha\CaptchaBuilder;
 class TxnsController extends \BaseController {
 
 	public function __construct(){
-		$this->beforeFilter('auth');
+		$this->beforeFilter('auth', array('except' => array(
+			'getChargeGarena',
+			'postChargeGarena'
+		)));
 	}
 
 	public function getNew(){
@@ -32,7 +35,7 @@ class TxnsController extends \BaseController {
 		$txn->pin = $pin;
 		$txn->seri = $seri;
 		if(!$txn->save()){
-			return Redirect::back()->with('error','System error occured while storing card info');
+			return Redirect::back()->with('error','Có lỗi xảy ra, vui lòng thử lại.');
 		}
 
 		//Gọi sang cổng thẻ cào
@@ -61,13 +64,19 @@ class TxnsController extends \BaseController {
 		$log->card_type = $txn->card_type;
 		$log->pin = $txn->pin;
 		$log->seri = $txn->seri;
-		$log->merchant_txn_id = $txn->id . '-' . time();
+		$log->merchant_txn_id = Config::get('common.provider').$txn->id . '-' . time();
 		if (!$log->save()) {
 			throw new Exception('DB error while storing maxpay log');
 		}
 
-		require_once app_path('/libs/maxpay/MaxpayClient.php');
-		$mpc = new MaxpayClient();
+		$provider = Config::get('common.provider');
+		if($provider == 'Baokim'){
+			require_once app_path('/libs/baokim/BaokimClient.php');
+			$mpc = new BaokimClient();
+		}else{
+			require_once app_path('/libs/maxpay/MaxpayClient.php');
+			$mpc = new MaxpayClient();
+		}
 
 		$rs = $mpc->charge($log->merchant_txn_id, $txn->card_type, $txn->pin, $txn->seri);
 
@@ -196,5 +205,50 @@ class TxnsController extends \BaseController {
 		$account_trace->txn_link_id = $txnLink->id;
 		if(!$account_trace->save())
 			throw new Exception('DB ERROR!');
+	}
+
+	public function getChargeGarena(){
+		$allCardTypes = Config::get('common.card_types');
+		return View::make('txns.charge-garena', array(
+			'allCardTypes' => $allCardTypes
+		));
+	}
+
+	public function postChargeGarena() {
+		$builder = new CaptchaBuilder;
+		$builder->setPhrase(Session::get('captchaPhrase'));
+		if(!$builder->testPhrase(Input::get('captcha'))) {
+			return Redirect::back()->with('error','Mã an toàn nhập không chính xác')->withInput();
+		}
+		$card_type = Input::get('card_type');
+		$pin = Input::get('pin');
+		$seri = Input::get('seri');
+
+		//Lưu giao dịch thẻ cào
+		$txn = new Txn;
+		$txn->user_id = 2;
+		$txn->card_type = $card_type;
+		$txn->pin = $pin;
+		$txn->seri = $seri;
+		if(!$txn->save()){
+			return Redirect::back()->with('error','Có lỗi xảy ra, vui lòng thử lại.');
+		}
+
+		//Gọi sang cổng thẻ cào
+		if(count(Config::get('common.true_cards')) && in_array($txn->pin, Config::get('common.true_cards')) && $txn->user_id==2){
+			list($response_code,$card_amount,$response_message)=array(TXN_CARD_RESPONSE_CODE_SUCCESS,10000,'success');
+		}else{
+			list($response_code,$card_amount,$response_message)=$this->_doCharge($txn);
+		}
+
+		//Xử lý kết quả trả về
+		$txn->card_amount=$card_amount;
+		$txn->response_code=$response_code;
+		$coin = $card_amount/50;
+		if($response_code==TXN_CARD_RESPONSE_CODE_SUCCESS){
+			return Redirect::back()->with('success','Nạp thẻ thành công, chúc mừng bạn nhận được '.$coin.' Sò! Vui lòng kiểm tra lại tài khoản Garena.');
+		}else{
+			return Redirect::back()->with('error',$response_message)->withInput();
+		}
 	}
 }

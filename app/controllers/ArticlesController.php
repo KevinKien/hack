@@ -157,4 +157,19 @@ class ArticlesController extends AdminBaseController {
         return Redirect::to('/admin/articles/list');
     }
 
+    public function postKeyword(){
+        $keyword = Input::get('keyword');
+        if(!empty($keyword)){
+            $all = CommonHelper::getAllKeyword($keyword);
+            return Response::json(array('success'=>true, 'key'=> implode(',', $all)));
+        }
+        else{
+            return Response::json(array('success'=>false));
+        }
+    }
+
+    public function getTest(){
+        var_dump(class_exists('cURL'));
+    }
+
 }

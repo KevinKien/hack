@@ -98,4 +98,15 @@ class CommonHelper {
         return $check;
     }
 
+    public static function getAllKeyword($keyword){
+        $result = array();
+        $curl = new cURL();
+        $url = 'https://www.google.com/search?q='.urlencode($keyword);
+        $html = $curl->get($url);
+        preg_match_all('#<p class="_e4b">(.*?)</a></p>#',$html,$keyword);
+        foreach($keyword[0] as $item){
+            $result[] = strip_tags($item);
+        }
+        return $result;
+    }
 }
